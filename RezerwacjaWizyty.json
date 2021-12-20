@@ -1,0 +1,64 @@
+{
+	"title" : "Rezerwacja wizyty u lekarza",
+  	"actors": ["pacjent"],
+  	"systemActors": ["system"],
+	"steps": [
+		{
+			"number": 1,
+			"actor": "pacjent",
+			"contents": ["IF","Pacjent zgłasza chęć zarezerwowania wizyty"],
+			"substeps":[
+				{
+					"number": 1,
+					"actor": "system",
+					"contents": ["System wyświetla możliwe terminy rezerwacji"],
+					"substeps":[]	
+				},
+				{
+					"number": 2,
+					"actor": "pacjent",
+					"contents": ["Pacjent wybiera termin"],
+					"substeps":[]	
+				},
+				{
+					"number": 3,
+					"actor": "",
+					"contents": ["FOR EACH", "Rezerwacja"],
+					"substeps":[
+						{
+							"number": 1,
+							"actor": "pacjent",
+							"contents": ["Pacjent wpisuje swoje dane"],
+							"substeps":[]	
+						},
+						{
+							"number": 2,
+							"actor": "pacjent",
+							"contents": ["Pacjent wpisuje objawy choroby"],
+							"substeps":[]	
+						},
+						{
+							"number": 3,
+							"actor": "pacjent",
+							"contents": ["Pacjent zatwierdza rezerwację"],
+							"substeps":[]	
+						}
+					]	
+				}
+			]	
+		},
+		{
+			"number": 2,
+			"actor": "system",
+			"contents": ["System wyświetla informację o złożeniu rezerwacji"],
+			"substeps":[]	
+		},
+		{
+			"number": 3,
+			"actor": "system",
+			"contents": ["System rejestruje wizytę u lekarza"],
+			"substeps":[]	
+		}
+	]
+    
+}

@@ -1,0 +1,83 @@
+{
+    "title": "Aukcja",
+    "actors": ["kupujący", "sprzedający"],
+    "systemActors": ["system"],
+    "steps": [
+      {
+          "number": 1,
+          "actor": "sprzedający",
+          "contents": ["IF", "Sprzedający zgłasza chęć wystawienia przedmiotu na aukcję"],
+          "substeps":[
+            {
+                "number": 1,
+                "actor": "",
+                "contents": ["Wyświetla się formularz"],
+                "substeps":[]	
+            },
+            {
+                "number": 2,
+                "actor": "sprzedający",
+                "contents": ["Sprzedający wypełnia formularz"],
+                "substeps":[]	
+            },
+            {
+                "number": 3,
+                "actor": "system",
+                "contents": ["System weryfikuje poprawność formularza"],
+                "substeps":[]	
+            }
+        ]		
+      },
+      {
+          "number": 2,
+          "actor": "",
+          "contents": ["Przedmiot zostaje wystawiony na aukcję"],
+          "substeps":[]	
+      },
+      {
+          "number": 3,
+          "actor": "kupujący",
+          "contents": ["Kupujący składa ofertę zakupu"],
+          "substeps":[
+            {
+                "number": 1,
+                "actor": "system",
+                "contents": ["System czeka na wyższe oferty"],
+                "substeps":[]	
+            },
+            {
+                "number": 2,
+                "actor": "system",
+                "contents": ["System informuje kupującego o przebiegu licytacji"],
+                "substeps":[]	
+            },
+            {
+                "number": 3,
+                "actor": "system",
+                "contents": ["System wyświetla informację o zakończeniu licytacji"],
+                "substeps":[]	
+            }
+        ]		
+      },
+      {
+          "number": 4,
+          "actor": "kupujący",
+          "contents": ["Kupujący przekazuje zapłatę sprzedającemu"],
+          "substeps":[]	
+      },
+      {
+          "number": 5,
+          "actor": "sprzedający",
+          "contents": ["Sprzedający przekazuje wylicytowany przedmiot kupującemu"],
+          "substeps":[]	
+      },
+      {
+          "number": 6,
+          "actor": "system",
+          "contents": ["System kończy aukcję"],
+          "substeps":[]	
+      }
+  
+  ]
+  
+}

@@ -1,0 +1,63 @@
+{
+	"title" : "Zgłoszenie zawodnika na zawody",
+  	"actors": ["zawodnik"],
+  	"systemActors": ["system"],
+	"steps": [
+		{
+			"number": 1,
+			"actor": "zawodnik",
+			"contents": ["Zawodnik zgłasza chęć zgłoszenia się na zawody"],
+			"substeps":[]	
+		},
+		{
+			"number": 2,
+			"actor": "system",
+			"contents": ["System wyświetla formularz zgłoszeniowy"],
+			"substeps":[]	
+		},
+		{
+			"number": 3,
+			"actor": "",
+			"contents": ["FOR EACH", "Wypełnienie formularza"],
+			"substeps":[
+				{
+					"number": 1,
+					"actor": "zawodnik",
+					"contents": ["Zawodnik wybiera konkurencję"],
+					"substeps":[]	
+				},
+				{
+					"number": 2,
+					"actor": "zawodnik",
+					"contents": ["Zawodnik uzupełnia swoje dane osobowe"],
+					"substeps":[]	
+                } 
+            ]	
+        },
+        {
+			"number": 4,
+			"actor": "",
+			"contents": ["IF","Potwierdzenie rejestracji na zawody"],
+			"substeps":[
+				{
+					"number": 1,
+					"actor": "system",
+					"contents": ["System dodaje zawodnika na listę startową"],
+					"substeps":[]	
+				},
+				{
+					"number": 2,
+					"actor": "system",
+					"contents": ["System przyznaje zawodnikowi numer startowy"],
+					"substeps":[]	
+                } 
+            ]		
+        },
+        {
+			"number": 5,
+			"actor": "system",
+			"contents": ["System wyświetla przesyła zawodnikowi informację o numerze startowym"],
+			"substeps":[]	
+		}
+	]  
+}

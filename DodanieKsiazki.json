@@ -1,0 +1,89 @@
+{
+  	"title": "Dodanie książki",
+  	"actors": ["bibliotekarz"],
+  	"systemActors": ["system"],
+	"steps": [
+		{
+			"number": 1,
+			"actor": "bibliotekarz",
+			"contents": ["Bibliotekarz wybiera opcje dodania nowej pozycji książkowej"],
+			"substeps":[]	
+		},
+		{
+			"number": 2,
+			"actor": "",
+			"contents": ["Wyświetla się formularz"],
+			"substeps":[]	
+		},
+		{
+			"number": 3,
+			"actor": "bibliotekarz",
+			"contents": ["Bibliotekarz podaje dane książki"],
+			"substeps":[]	
+		},
+		{
+			"number": 4,
+			"actor": "bibliotekarz",
+			"contents": ["IF", "Bibliotekarz pragnie dodać egzemplarze książki"],
+			"substeps":[
+				{
+					"number": 1,
+					"actor": "bibliotekarz",
+					"contents": ["Bibliotekarz wybiera opcję definiowania egzemplarzy"],
+					"substeps":[]	
+				},
+				{
+					"number": 2,
+					"actor": "system",
+					"contents": ["System prezentuje zdefiniowane egzemplarze"],
+					"substeps":[]	
+				},
+				{
+					"number": 3,
+					"actor": "",
+					"contents": ["FOR EACH", "egzemplarz"],
+					"substeps":[
+						{
+							"number": 1,
+							"actor": "bibliotekarz",
+							"contents": ["Bibliotekarz wybiera opcję dodania egzemplarza"],
+							"substeps":[]	
+						},
+						{
+							"number": 2,
+							"actor": "system",
+							"contents": ["System prosi o podanie danych egzemplarza"],
+							"substeps":[]	
+						},
+						{
+							"number": 3,
+							"actor": "bibliotekarz",
+							"contents": ["Bibliotekarz podaje dane egzemplarza i zatwierdza"],
+							"substeps":[]	
+						},
+						{
+							"number": 4,
+							"actor": "system",
+							"contents": ["System informuje o poprawnym dodaniu egzemplarza i prezentuje zaktualizowaną listę egzemplarzy"],
+							"substeps":[]	
+						}
+					]	
+				}
+			]	
+		},
+		{
+			"number": 5,
+			"actor": "bibliotekarz",
+			"contents": ["Bibliotekarz zatwierdza dodanie książki"],
+			"substeps":[]	
+		},
+		{
+			"number": 6,
+			"actor": "system",
+			"contents": ["System informuje o poprawnym dodaniu książki"],
+			"substeps":[]	
+		}
+	
+	]
+    
+}
