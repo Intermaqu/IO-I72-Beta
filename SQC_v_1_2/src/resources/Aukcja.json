@@ -1,0 +1,83 @@
+{
+  "title": "Aukcja",
+  "actors": ["kupujący", "sprzedający"],
+  "systemActors": ["system"],
+  "steps": [
+    {
+      "number": 1,
+      "actor": "sprzedający",
+      "contents": [ "IF", "Sprzedający zgłasza chęć wystawienia przedmiotu na aukcję" ],
+      "subSteps": [
+        {
+          "number": 1,
+          "actor": "",
+          "contents": [ "Wyświetla się formularz" ],
+          "subSteps": []
+        },
+        {
+          "number": 2,
+          "actor": "sprzedający",
+          "contents": [ "Sprzedający wypełnia formularz" ],
+          "subSteps": []
+        },
+        {
+          "number": 3,
+          "actor": "system",
+          "contents": [ "System weryfikuje poprawność formularza" ],
+          "subSteps": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "actor": "",
+      "contents": [ "Przedmiot zostaje wystawiony na aukcję" ],
+      "subSteps": []
+    },
+    {
+      "number": 3,
+      "actor": "kupujący",
+      "contents": [ "IF", "Kupujący składa ofertę zakupu" ],
+      "subSteps": [
+        {
+          "number": 1,
+          "actor": "system",
+          "contents": [ "System czeka na wyższe oferty" ],
+          "subSteps": []
+        },
+        {
+          "number": 2,
+          "actor": "system",
+          "contents": [ "System informuje kupującego o przebiegu licytacji" ],
+          "subSteps": []
+        },
+        {
+          "number": 3,
+          "actor": "system",
+          "contents": [ "System wyświetla informację o zakończeniu licytacji" ],
+          "subSteps": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "actor": "kupujący",
+      "contents": [ "Kupujący przekazuje zapłatę sprzedającemu" ],
+      "subSteps": []
+    },
+    {
+      "number": 5,
+      "actor": "sprzedający",
+      "contents": [ "Sprzedający przekazuje wylicytowany przedmiot kupującemu" ],
+      "subSteps": []
+    },
+    {
+      "number": 6,
+      "actor": "system",
+      "contents": [ "System kończy aukcję" ],
+      "subSteps": []
+    }
+
+  ]
+
+}
