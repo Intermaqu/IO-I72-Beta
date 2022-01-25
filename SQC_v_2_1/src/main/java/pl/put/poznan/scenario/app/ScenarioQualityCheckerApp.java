@@ -16,6 +16,9 @@ import java.nio.file.Path;
 public class ScenarioQualityCheckerApp {
 
     public static void main(String[] args) throws IOException {
+        Statistics stats = new Statistics();
+        stats.initializeStats();
+
         String file = "Aukcja.json";
         SpringApplication.run(ScenarioQualityCheckerApp.class, args);
         ScenarioQualityCheckerController s = new ScenarioQualityCheckerController();
@@ -28,6 +31,8 @@ public class ScenarioQualityCheckerApp {
         //System.out.println(s.countKeyWordsSteps(filePathString));
         //System.out.println(s.countStepsNoActor(filePathString));
         //System.out.println(s.printScenario(filePathString));
-        System.out.println(s.findStepsWithKeywords(filePathString));
+        System.out.println(s.findStepsWithKeywords(filePathString, stats));
+        stats.printAllStats();
+
     }
 }
