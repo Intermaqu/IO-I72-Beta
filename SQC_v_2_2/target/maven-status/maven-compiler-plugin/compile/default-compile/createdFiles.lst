@@ -1,0 +1,9 @@
+pl\put\poznan\scenario\objects\Scenario.class
+pl\put\poznan\scenario\rest\ScenarioQualityCheckerController.class
+pl\put\poznan\scenario\app\ScenarioQualityCheckerApp.class
+pl\put\poznan\scenario\logic\CountStepsForKeywords.class
+pl\put\poznan\scenario\logic\JSONReader.class
+pl\put\poznan\scenario\logic\CountVisit.class
+pl\put\poznan\scenario\logic\CountAllSteps.class
+pl\put\poznan\scenario\objects\Step.class
+pl\put\poznan\scenario\logic\JSONtoObject.class
