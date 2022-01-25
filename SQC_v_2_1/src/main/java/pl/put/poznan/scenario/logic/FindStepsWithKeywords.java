@@ -34,6 +34,6 @@ public class FindStepsWithKeywords extends DisplayVisit{
     }
 
     public void resetDisplay() {
-        KeywordSteps = "Numbers of steps containing keywords: \n";
+        KeywordSteps = "Indexes of steps containing keywords: \n";
     }
 }
