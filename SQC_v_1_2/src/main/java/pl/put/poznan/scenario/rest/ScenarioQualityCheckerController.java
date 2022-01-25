@@ -26,8 +26,7 @@ public class ScenarioQualityCheckerController{
      *
      */
 
-    @RequestMapping(method = RequestMethod.GET, path = "{filename}")
-    public Scenario cheackJson(@PathVariable String filename){
+    public Scenario checkJson(@PathVariable String filename){
 
 
 
@@ -55,11 +54,8 @@ public class ScenarioQualityCheckerController{
      * @return  result    Ilosc wszystkich krokow w scenariuszu
      *
      * */
-
     public int countAllSteps(@PathVariable String filename){
-
-
-        Scenario scenario = cheackJson(filename);
+        Scenario scenario = checkJson(filename);
         CountVisit visit = new CountAllSteps();
         scenario.permissionToCount(visit);
         int result = ((CountAllSteps) visit).getNumberOfSteps();
@@ -77,12 +73,21 @@ public class ScenarioQualityCheckerController{
      *
      * */
 
-    @RequestMapping(method = RequestMethod.GET, path = "{filenane}")
+    @RequestMapping(method = RequestMethod.GET, path = "{filename}")
     public int countKeyWordsSteps(@PathVariable String filename) {
-        Scenario scenario = cheackJson(filename);
+        Scenario scenario = checkJson(filename);
         CountVisit visit = new CountStepsForKeywords();
         scenario.permissionToCount(visit);
         int result = ((CountStepsForKeywords) visit).getNumberOfSteps();
+        visit.resetCount();
+        return result;
+    }
+
+    public int countStepsNoActor(@PathVariable String filename) {
+        Scenario scenario = checkJson(filename);
+        CountVisit visit = new CountStepsForNoActor();
+        scenario.permissionToCount(visit);
+        int result = ((CountStepsForNoActor) visit).getNumberOfSteps();
         visit.resetCount();
         return result;
     }

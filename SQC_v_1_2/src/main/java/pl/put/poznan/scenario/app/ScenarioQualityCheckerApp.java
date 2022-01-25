@@ -25,6 +25,8 @@ public class ScenarioQualityCheckerApp {
         String filePathString = filePath.toString();
 
         System.out.println(s.countAllSteps(filePathString));
-        //System.out.println(s.countKeyWordsSteps(filePathString));
+        System.out.println(s.countKeyWordsSteps(filePathString));
+        System.out.println(s.countStepsNoActor(filePathString));
+
     }
 }
