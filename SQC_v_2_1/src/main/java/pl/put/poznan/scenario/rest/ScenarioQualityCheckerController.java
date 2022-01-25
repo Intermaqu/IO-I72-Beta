@@ -99,6 +99,14 @@ public class ScenarioQualityCheckerController{
         visit.resetDisplay();
         return result;
     }
+    public String findStepsWithKeywords(@PathVariable String filename) {
+        Scenario scenario = checkJson(filename);
+        DisplayVisit visit = new FindStepsWithKeywords();
+        scenario.permissionToDisplay(visit);
+        String result = ((FindStepsWithKeywords) visit).getScenarioText();
+        visit.resetDisplay();
+        return result;
+    }
 }
 
 
