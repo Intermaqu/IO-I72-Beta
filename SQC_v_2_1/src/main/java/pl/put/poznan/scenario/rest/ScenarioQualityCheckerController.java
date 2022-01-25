@@ -7,9 +7,9 @@ import com.google.gson.JsonSyntaxException;
 
 /**
  *   Klasa Restowa ktora jest kontrolerem calej aplikacji. Laczy cala logike.
- *   Posiada aktualnie 3 metody z ktorych 2 zwracaja ilosc krokow a jedna sluzy
- *   do sprawdzenia poprawnosci wczytanego pliku. Klasa bedzie rozbudowywana
- * */
+ *   Posiada aktualnie 6 metody z ktorych 3 zwracaja ilosc krokow, 1 sluzy
+ *   do sprawdzenia poprawnosci wczytanego pliku a 2 do wyswietlenia czesci badz calego scenariusza.
+ *   * */
 
 @RestController
 public class ScenarioQualityCheckerController{
@@ -47,10 +47,11 @@ public class ScenarioQualityCheckerController{
 
     /**
      *
-     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json
+     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json i zmienna klasy Scenario
      * Zwraca ilosc wszystkich krokow w scenariuszu
      *
      * @param   filename  Nazwa pliku w formacie JSON z scenariuszem do przetworzenia
+     * @param   stats     Obiek klasy Statistics ktora zlicza ilosc wywolan wszystkich metod
      * @return  result    Ilosc wszystkich krokow w scenariuszu
      *
      * */
@@ -66,10 +67,11 @@ public class ScenarioQualityCheckerController{
 
     /**
      *
-     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json
+     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json i zmienna klasy Scenario
      * Zwraca ilosc krokow ze slowami kluczowymi
      *
      * @param   filename  Nazwa pliku w formacie JSON z scenariuszem do przetworzenia
+     * @param   stats     Obiek klasy Statistics ktora zlicza ilosc wywolan wszystkich metod
      * @return  result    Ilosc wszystkich krokow ktore posiadaja slowa kluczowe {IF, ELSE, FOR EACH}
      *
      * */
@@ -85,6 +87,17 @@ public class ScenarioQualityCheckerController{
         return result;
     }
 
+    /**
+     *
+     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json i zmienna klasy Scenario
+     * Zwraca ilosc krokow ze scenariusza w ktorych Aktor jest pustym stringiem (Nie ma aktora)
+     *
+     * @param filename   Nazwa pliku w formacie JSON z scenariuszem do przetworzenia
+     * @param stats      Obiek klasy Statistics ktora zlicza ilosc wywolan wszystkich metod
+     * @return result    Ilosc wszystkich krokow scenariusza ktore nie posiadaja slowa aktora
+     *
+     */
+
     public int countStepsNoActor(@PathVariable String filename, Statistics stats) {
         stats.incrementCountStepsForNoActor();
         Scenario scenario = checkJson(filename);
@@ -94,6 +107,17 @@ public class ScenarioQualityCheckerController{
         visit.resetCount();
         return result;
     }
+
+    /**
+     *
+     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json i zmiennaa klasy Scenario
+     * Zwraca String ktory zawiera caly scenariusz w formie drzewiastej
+     *
+     * @param filename   Nazwa pliku w formacie JSON z scenariuszem do przetworzenia
+     * @param stats      Obiek klasy Statistics ktora zlicza ilosc wywolan wszystkich metod
+     * @return result    Scenariusz skonwertowany z JSON do String i sformatowany w formie listy zagniezdzonej
+     *
+     */
     public String printScenario(@PathVariable String filename, Statistics stats) {
         stats.incrementScenarioPrinter();
         Scenario scenario = checkJson(filename);
@@ -103,6 +127,17 @@ public class ScenarioQualityCheckerController{
         visit.resetDisplay();
         return result;
     }
+    /**
+     *
+     * Metoda ktora na wejsciu przyjmuje nazwe pliku z rozszerzenie .json i zmienna klasy Scenario
+     * Zwraca String ktory zawiera indeksy krokow scenariusza ze slowami kluczowymi
+     *
+     * @param filename   Nazwa pliku w formacie JSON z scenariuszem do przetworzenia
+     * @param stats      Obiek klasy Statistics ktora zlicza ilosc wywolan wszystkich metod
+     * @return result    Indeksy krokow i slowa kluczowe jako String ktory przy wyswietleniu tworzy liste zagniezdzona.
+     *
+     */
+
     public String findStepsWithKeywords(@PathVariable String filename, Statistics stats) {
         stats.incrementFindStepsWithKeywords();
         Scenario scenario = checkJson(filename);
