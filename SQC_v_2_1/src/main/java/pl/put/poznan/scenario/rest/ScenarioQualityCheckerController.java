@@ -54,7 +54,8 @@ public class ScenarioQualityCheckerController{
      * @return  result    Ilosc wszystkich krokow w scenariuszu
      *
      * */
-    public int countAllSteps(@PathVariable String filename){
+    public int countAllSteps(@PathVariable String filename, Statistics stats){
+        stats.incrementCountAllSteps();
         Scenario scenario = checkJson(filename);
         CountVisit visit = new CountAllSteps();
         scenario.permissionToCount(visit);
@@ -74,7 +75,8 @@ public class ScenarioQualityCheckerController{
      * */
 
     @RequestMapping(method = RequestMethod.GET, path = "{filename}")
-    public int countKeyWordsSteps(@PathVariable String filename) {
+    public int countKeyWordsSteps(@PathVariable String filename, Statistics stats) {
+        stats.incrementCountStepsForNoKeyword();
         Scenario scenario = checkJson(filename);
         CountVisit visit = new CountStepsForKeywords();
         scenario.permissionToCount(visit);
@@ -83,7 +85,8 @@ public class ScenarioQualityCheckerController{
         return result;
     }
 
-    public int countStepsNoActor(@PathVariable String filename) {
+    public int countStepsNoActor(@PathVariable String filename, Statistics stats) {
+        stats.incrementCountStepsForNoActor();
         Scenario scenario = checkJson(filename);
         CountVisit visit = new CountStepsForNoActor();
         scenario.permissionToCount(visit);
@@ -91,7 +94,8 @@ public class ScenarioQualityCheckerController{
         visit.resetCount();
         return result;
     }
-    public String printScenario(@PathVariable String filename) {
+    public String printScenario(@PathVariable String filename, Statistics stats) {
+        stats.incrementScenarioPrinter();
         Scenario scenario = checkJson(filename);
         DisplayVisit visit = new ScenarioPrinter();
         scenario.permissionToDisplay(visit);
@@ -99,7 +103,8 @@ public class ScenarioQualityCheckerController{
         visit.resetDisplay();
         return result;
     }
-    public String findStepsWithKeywords(@PathVariable String filename) {
+    public String findStepsWithKeywords(@PathVariable String filename, Statistics stats) {
+        stats.incrementFindStepsWithKeywords();
         Scenario scenario = checkJson(filename);
         DisplayVisit visit = new FindStepsWithKeywords();
         scenario.permissionToDisplay(visit);
